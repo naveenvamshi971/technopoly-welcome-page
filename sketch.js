@@ -19,12 +19,19 @@ function setup() {
 
   textFont('Consolas');
   textSize(symbolSize);
+  
 }
+function mousePressed(){
+  if((mouseY>=height/2-50) && (mouseY<=height/2+50) && mouseX>=450 && mouseX<=900){
+    open("login.html","_self");
+    noLoop();
 
+  }
+}
 function draw() {
   background(0, 150);
   technopoly();
-  
+  textFont('Consolas');
   streams.forEach(function(stream) {
     stream.render();
   });
@@ -102,7 +109,7 @@ function Stream() {
       if (symbol.first) {
         fill(140, 255, 170, symbol.opacity);
       } else {
-        fill(255, 0, 150, symbol.opacity);
+        fill(random(100,255), 0, 70, symbol.opacity);
       }
       text(symbol.value, symbol.x, symbol.y);
       symbol.rain();
@@ -112,8 +119,10 @@ function Stream() {
 }
 var technopoly = function(){
     textSize(100);
-   fill(random(100,255), 0, 70);
-    text("Technopoly",width/3,height/2);
+   fill(random(200,255),20,10);
+   textFont('broadway');
+    text("Technopoly",width/3-80,height/2);
+    
     textSize(symbolSize);
-    textFont('Consolas');
+    textFont("consolas");
 }
