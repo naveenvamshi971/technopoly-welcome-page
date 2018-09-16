@@ -1,7 +1,9 @@
 var streams = [];
 var fadeInterval = 1;
 var symbolSize = 18;
-
+function preload(){
+  loadImage("TechnopolyLogo.png");
+}
 function setup() {
   createCanvas(
     window.innerWidth,
