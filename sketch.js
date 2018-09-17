@@ -1,6 +1,7 @@
 var streams = [];
 var fadeInterval = 1;
 var symbolSize = 18;
+
 function setup() {
   createCanvas(
     window.innerWidth,
