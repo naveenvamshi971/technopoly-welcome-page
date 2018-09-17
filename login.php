@@ -7,11 +7,32 @@
     <title>Logged In</title>
 </head>
 <body>
-    <?php
-        $password = $_POST['userPassword'];
-        $username = $_POST['userNameInput'];
-        echo "Welcome to Technopoly, $username";
-    ?>
-
 </body>
 </html>
+
+<?php
+session_start();
+$password = $_POST['userPassword'];
+$username = $_POST['userNameInput'];
+$_SESSION["uname"]=$username;
+$conn=new mysqli("localhost", "root", "", "technopoly");
+if($conn->connect_error)
+{
+    die("connection failed".$conn->connect_error);
+}
+$sq="select * from login where uname='$username' and password='$password'";
+if(($r=$conn->query($sq))== false)
+    echo $conn->error;
+else {
+    if ($r->num_rows) {
+        header("location:shop.html");
+        }
+     else{
+         echo '<script language="javascript">';
+         echo 'alert("your not a valid user")';
+         echo '</script>';
+         include "login.html";
+     }
+}
+
+?>
