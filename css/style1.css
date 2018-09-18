@@ -1,0 +1,38 @@
+body{
+    background: #000 url("../map.png") no-repeat;
+}
+.circle{
+    background: #000;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px; 
+}
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0,0,0,0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(2.1);
+  transform: scale(2.1);
+}
+#france{
+    position: absolute;
+    top:150px;
+    left:550px;
+}
+#france > span{
+    color: #fff;
+    position:relative;
+    top: 10px;
+    left: 20px;
+}

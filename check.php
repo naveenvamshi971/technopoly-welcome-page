@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Chanakya
- * Date: 9/16/2018
- * Time: 1:21 PM
- */
+
 session_start();
 include 'shop.html';
 $conn=new mysqli("localhost", "root", "", "technopoly");
@@ -37,14 +32,7 @@ if(($i1=$conn->query($sql))== false)
 else{
     while($r1 = $i1->fetch_assoc()){
         $bal=$r['balance'];
-        if($r1['level']==1)
-            $cp=100;
-        elseif($r1['level']==2)
-            $cp=150;
-        elseif($r1['level']==3)
-            $cp=200;
-        elseif($r1['level']==4)
-            $cp=300;
+        $cp=$r1['price'];
         if($r1['correct_ans']==$ans){
             $sq2="update login
                   set balance=$bal+2*$cp

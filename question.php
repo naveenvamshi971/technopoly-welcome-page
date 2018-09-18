@@ -6,7 +6,7 @@
  * Time: 12:32 PM
  */
 session_start();
-include 'shop.html';
+#include 'shop.html';
 $conn=new mysqli("localhost", "root", "", "technopoly");
 if($conn->connect_error)
 {
@@ -50,14 +50,7 @@ else {
     }
 
     $bal=$r4['balance'];
-    if($level==1)
-        $cp=100;
-    elseif($level==2)
-        $cp=150;
-    elseif($level==3)
-        $cp=200;
-    elseif($level==4)
-        $cp=300;
+    $cp=$r4['price'];
     $sq3="update login
                   set balance=$bal-$cp
                   where uname='$uname'";
@@ -91,7 +84,14 @@ else {
        <tr>
             <td><input type='submit' name='$qid[0]' value='submit'/></td>
        </tr>
+       <tr>
+            <td><a href='sell.php?var=$qid[0]'><input type='button' value='sell'/></a></td>
+       </tr>
        </table></form></body></html>";
     }
 }
 ?>
+
+<script>
+    func(x)
+</script>

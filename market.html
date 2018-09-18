@@ -22,19 +22,29 @@
 <a class="main home" href="index1.html"  id="main" onmouseover="disp()">
 <span class="hvr-buzz-out hvr-grow"><i class="fa fa-home fa-lg text-center" aria-hidden="true"></i><br/>Home</span>
 </a>
-<div class="container shop-container">
-        <div class="panel panel-default">
-        <div class="panel-body">
-        <div class="container text-center"> 
-            <div class="row">
-                    <a href="level1.php" class="btn">level 1</a>
-                    <a href="level2.php" class="btn">level 2</a>
-                    <a href="level3.php" class="btn">level 3</a>
-                    <a href="level4.php" class="btn">level 4</a>
-            </div>
-        </div>
-        </div>
-        </div>
-        </div>
+<div class="container market-container">
+<div class="panel panel-default">
+<div class="panel-body">
+<table class="table">
+                <thead>
+                <tr>
+                    <th>Question Id</th>
+                    <th>Level</th>
+                    <th>Price</th>
+                    <th>Buy</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="i in data">
+                    <td>{{i.qid}}</td>
+                    <td>{{i.level}}</td>
+                    <td>{{i.saleprice}}</td>
+                    <td><input type="button" ng-click="buym(i.qid)" class="btn" value="Buy" /></td>
+                </tr>
+                </tbody>
+</table>
+</div>
+</div>
+</div>
 </body>
 </html>

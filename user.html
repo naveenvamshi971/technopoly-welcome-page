@@ -22,19 +22,27 @@
 <a class="main home" href="index1.html"  id="main" onmouseover="disp()">
 <span class="hvr-buzz-out hvr-grow"><i class="fa fa-home fa-lg text-center" aria-hidden="true"></i><br/>Home</span>
 </a>
-<div class="container shop-container">
-        <div class="panel panel-default">
+<div class="container user-container">
+<div class="panel panel-default text-center" style="font-size:20px;margin-bottom:0px;">
+    <div class="panel-body" style="padding:5px;">
+    <span style="float:left">Username:{{user.uname}}</span>
+    <span style="float:right">Coins:{{user.balance}}</span>
+    </div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" style="padding:5px;"><h3>Questions</h3></div>
+<div class="panel-body" style="padding:5px;">
+    <div ng-if="data==0"><h4>Buy Question from Shop</h4></div>
+    <div class="panel panel-default" ng-repeat="i in data" ng-if="data!=0">
         <div class="panel-body">
-        <div class="container text-center"> 
-            <div class="row">
-                    <a href="level1.php" class="btn">level 1</a>
-                    <a href="level2.php" class="btn">level 2</a>
-                    <a href="level3.php" class="btn">level 3</a>
-                    <a href="level4.php" class="btn">level 4</a>
-            </div>
+        <h4>Prize:{{i.prize}}</h4><br/>
+        <span style="font-size:20px;">{{i.qid}})&nbsp<span ng-bind-html="toHtml(i.question)"></span></span>
+        <a class="btn btn-success" id="solve{{i.qid}}" href="#question" ng-click="put(i.qid)" ng-controller="user-ques" style="float:right;">Solve</a>
         </div>
-        </div>
-        </div>
-        </div>
+    </div>
+
+</div>
+</div>
+</div>
 </body>
 </html>

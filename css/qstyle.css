@@ -1,0 +1,19 @@
+#prev{
+    clear:both;
+    float: left;
+}
+#next{
+    clear: right;
+    float: right;
+}
+#myCarousel{
+  width: 80%;
+  margin: auto;
+}
+.panel{
+  margin: 10px;
+}
+#submit{
+  clear:both;   
+  display: inline-block;
+}

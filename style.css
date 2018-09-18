@@ -1,0 +1,9 @@
+body{
+	background-image: url("./img.png");
+}
+.form-horizontal .control-label {
+    color:#A24D48;
+}
+#holder{
+	height: 200px;
+}
