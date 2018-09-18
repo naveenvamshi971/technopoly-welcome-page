@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Created by PhpStorm.
@@ -6,7 +7,7 @@
  * Time: 12:32 PM
  */
 session_start();
-include 'shop.html';
+#include 'shop.html';
 $conn=new mysqli("localhost", "root", "", "technopoly");
 if($conn->connect_error)
 {
@@ -27,49 +28,55 @@ else{
         }
     }
 }
+$balance=$r4['balance'];
+
 $sql="select * from question where qid='$qid[0]';";
 $sq2="select * from options where qid='$qid[0]';";
-if(($i=$conn->query($sql))== false or ($i1=$conn->query($sq2))== false)
+if(($i1=$conn->query($sql))== false or ($i2=$conn->query($sq2))== false)
 {
     echo $conn->error;
 }
 else {
-    $r;
-    while($r = $i->fetch_assoc())
+    $cp=1;
+    while($r1 = $i1->fetch_assoc())
     {
-        $ques=$r['question'];
-        $x=$qid[0];
-        echo "<html><body>
+        if($balance>=$r1['price']) {
+            $ques = $r1['question'];
+            $cp=$r1['price'];
+            $x = $qid[0];
+            echo "<html><body>
        <table width='10' cellspacing='7' cellpadding='5'>
        <tr>
                <td>$x.$ques</td>
        </tr>
       
        </table></body></html>";
-        $level=$r['level'];
+
+            break;
+        }
+        else{
+            #header('Refresh:0; url=shop.html');
+            echo '<script language="javascript">';
+            echo 'alert("insufficint balance")';
+            echo '</script>';
+        }
     }
 
     $bal=$r4['balance'];
-    if($level==1)
-        $cp=100;
-    elseif($level==2)
-        $cp=150;
-    elseif($level==3)
-        $cp=200;
-    elseif($level==4)
-        $cp=300;
-    $sq3="update login
-                  set balance=$bal-$cp
-                  where uname='$uname'";
+    #echo $bal;
+    #echo $cp."bye";
+    #echo "hii";
+    $sq3="update login set balance='$bal'-'$cp' where uname='$uname';";
+
     if(($i3=$conn->query($sq3))== false)
     {
         echo $conn->error;
     }
-    while($r1 = $i1->fetch_assoc()){
-        $option1=$r1['option-1'];
-        $option2=$r1['option-2'];
-        $option3=$r1['option-3'];
-        $option4=$r1['option-4'];
+    while($r2 = $i2->fetch_assoc()){
+        $option1=$r2['option-1'];
+        $option2=$r2['option-2'];
+        $option3=$r2['option-3'];
+        $option4=$r2['option-4'];
         echo "<html><body><form action='check.php' method='POST'>
        <table  width='10' cellspacing='7' cellpadding='5'>
        <tr>
@@ -91,7 +98,12 @@ else {
        <tr>
             <td><input type='submit' name='$qid[0]' value='submit'/></td>
        </tr>
+       <tr>
+            <td><a href='sell.php?var=$qid[0]'><input type='button' value='sell'/></a></td>
+       </tr>
        </table></form></body></html>";
     }
 }
 ?>
+
+
