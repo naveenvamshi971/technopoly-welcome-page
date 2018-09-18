@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Technopoly</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>  
+  <script src="./js/script.js"></script>  
+  <script src="./js/question.js"></script>  
+  <script src="./js/store.js"></script>  
+  <script src="./js/market.js"></script>  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.min.js"></script>
+  <link rel="stylesheet" href="./css/style.css">  
+  <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./Hover/css/hover-min.css">
+  </head>
+<body ng-app="myApp" ng-controller="user">
+<a class="main home" href="index1.html"  id="main" onmouseover="disp()">
+<span class="hvr-buzz-out hvr-grow"><i class="fa fa-home fa-lg text-center" aria-hidden="true"></i><br/>Home</span>
+</a>
+<div class="container user-container">
+<div class="panel panel-default text-center" style="font-size:20px;margin-bottom:0px;">
+    <div class="panel-body" style="padding:5px;">
+    <span style="float:left">Username:{{user.uname}}</span>
+    <span style="float:right">Coins:{{user.balance}}</span>
+    </div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" style="padding:5px;"><h3>Questions</h3></div>
+<div class="panel-body" style="padding:5px;">
+    <div ng-if="data==0"><h4>Buy Question from Shop</h4></div>
+    <div class="panel panel-default" ng-repeat="i in data" ng-if="data!=0">
+        <div class="panel-body">
+        <h4>Prize:{{i.prize}}</h4><br/>
+        <span style="font-size:20px;">{{i.qid}})&nbsp<span ng-bind-html="toHtml(i.question)"></span></span>
+        <a class="btn btn-success" id="solve{{i.qid}}" href="#question" ng-click="put(i.qid)" ng-controller="user-ques" style="float:right;">Solve</a>
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
+</body>
+</html>
