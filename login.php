@@ -25,7 +25,7 @@ if(($r=$conn->query($sq))== false)
     echo $conn->error;
 else {
     if ($r->num_rows) {
-        header("location:shop.html");
+        header("location:index1.html");
         }
      else{
          echo '<script language="javascript">';
