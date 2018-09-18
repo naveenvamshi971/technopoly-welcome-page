@@ -22,20 +22,21 @@ else
         while($i=$r->fetch_assoc())
         {
             $a=$i['qid'];
-            echo "<html><body><form action='question.php' method='POST'>
-       <table align='center' width='10' cellspacing='7' cellpadding='5'>
+            echo "<html><body ><div class='d1'><br><form action='question.php' method='POST'>
+       <table align='center' width='10' cellspacing='20' cellpadding='5'>
        <tr>
                <td colspan='2'><b>Question:</b></td>
+               
                <td>$a</td>
-               <td>  </td>
+               <td><span style='display:inline-block; width: 400px;'></span></td>
                <td colspan='3'><input type='submit' name='$a' value='BUY for 300'/></td>
        </tr>
-       </table></form></body></html>";
+       </table></form><br></div></body></html>";
 
         }
     }
     else {
-        echo "<html><body style=''><br>No questions left visit again
+        echo "<html><body style=''><div class='d1'><br><span style=\"display:inline-block; width: 350px;\"></span>No questions left visit again
             <br><br></body></html>";
     }
 }
