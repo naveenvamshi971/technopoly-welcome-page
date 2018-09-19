@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form>
+            <h1><span ng-bind-html="toHtml(question.question)"></span></h1>
+            <div class="form-group">
+            <input type="hidden" name="qid" id="qid" value="{{question.qid}}" />
+            <input type="hidden" name="prize" value="{{question.prize}}" />
+            <input type="hidden" name="cp" id="cp" value="{{question.costprice}}" />            
+            <div class="radio" ng-repeat="i in answers track by $index">
+            <label><input type="radio" name="option" value="{{i.ansid}}">{{i.answer}}</label>
+            </div>
+            <input type="submit" class="btn btn-success" id="submitans" value="Submit" name="submit" onclick="submitAnswer();" />
+            
+             <button class="btn btn-warning" data-toggle="collapse" data-target="#demo">Sell</button>
+            <div id="demo" class="collapse">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                    <label>Bought for <strong><i>{{question.costprice}}</i></strong> Sell for:</label>
+                    <input class="form-control" type="number" id="price" />
+                    <input type="button" class="btn btn-success" id="market" value="sell" name="sell" onclick="addToMarket()"/>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

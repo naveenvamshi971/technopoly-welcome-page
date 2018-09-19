@@ -63,10 +63,11 @@ else {
     }
 
     $bal=$r4['balance'];
-    #echo $bal;
-    #echo $cp."bye";
-    #echo "hii";
-    $sq3="update login set balance='$bal'-'$cp' where uname='$uname';";
+
+    $cp=$r4['price'];
+    $sq3="update login
+                  set balance=$bal-$cp
+                  where uname='$uname'";
 
     if(($i3=$conn->query($sq3))== false)
     {
@@ -107,3 +108,6 @@ else {
 ?>
 
 
+<script>
+    func(x)
+</script>

@@ -1,10 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Chanakya
- * Date: 9/17/2018
- * Time: 8:12 PM
- */
+
 session_start();
 $qid=$_GET["var"];
 $uname=$_SESSION['uname'];
@@ -55,5 +49,7 @@ if(($i4=$conn->query($sq4))== false)
 {
     echo $conn->error;
 }
-header("location:index1.html");
+
+header("location:shop.html");
+
 ?>
