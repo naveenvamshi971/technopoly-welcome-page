@@ -23,6 +23,11 @@ else{
 $qid=array_keys($_POST);
 $ans=$_POST['option'];
 #print_r($_POST);
+$sql="delete from market where qid='$qid[1]';";
+if(($i1=$conn->query($sql))== false)
+{
+    echo $conn->error;
+}
 $sql="select * from question where qid='$qid[1]';";
 if(($i1=$conn->query($sql))== false)
 {
