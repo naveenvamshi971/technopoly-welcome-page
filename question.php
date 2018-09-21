@@ -15,6 +15,7 @@ if($conn->connect_error)
 $qid=array_keys($_POST);
 $uname=$_SESSION["uname"];
 //echo $uname;
+
 $sq4="select * from login where uname='$uname';";
 if(($i4=$conn->query($sq4))== false)
 {
@@ -29,7 +30,7 @@ else{
 }
 $balance=$r4['balance'];
 
-$sq5="select * from question where qid='$qid[0]' and status=0;";
+$sq5="select * from question where qid='$qid[0]' and status!=1 ;";
 if(($r5=$conn->query($sq5))== false)
     echo $conn->error;
 else{
@@ -71,6 +72,24 @@ else {
     #echo $bal;
     #echo $cp."bye";
     #echo "hii";
+    $sq7="select * from market where qid='$qid[0]'";
+    if(($i7=$conn->query($sq7))== false)
+    {
+        echo $conn->error;
+    }
+    else{
+        if($i7->num_rows){
+            while($r7=$i7->fetch_assoc()){
+                break;
+            }
+            $uidnew=$r7['uid'];
+            $sq8="update login set balance=balance+'$cp' where uid=$uidnew";
+            if(($i8=$conn->query($sq8))== false)
+            {
+                echo $conn->error;
+            }
+    }
+    }
     $sq3="update login set balance='$bal'-'$cp' where uname='$uname';";
 
     if(($i3=$conn->query($sq3))== false)
