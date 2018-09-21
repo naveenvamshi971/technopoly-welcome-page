@@ -1,9 +1,18 @@
 body.login-body{
-    background-color: #ce41c7;
+    background-image: url("background.jpg");
+}
+body.question-body{
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: 1366px 700px;
 }
 
 .container.signin-container{
     margin-top : 8%;
+}
+.container.question-container{
+    margin-top : 8%;
+
 }
 .card.signin-card{
     padding: 20px 0px 20px;
@@ -14,19 +23,45 @@ body.login-body{
     -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,.5);
     -moz-box-shadow: 2px 2px 5px rgba(0,0,0,.5);
 }
+.card.question-card{
+    padding: 20px 0px 20px;
+    max-width: 1000px;
+    margin: auto;
+    background-color: #f4f4f4;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.5);
+    -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,.5);
+    -moz-box-shadow: 2px 2px 5px rgba(0,0,0,.5);
+}
+.card-block.question-block{
+    margin-left: 5%;
+}
 
 img.signin-img{
     padding: 0 2rem 2rem;
-      margin:auto;
-      display: block;
-      
+    margin:auto;
+    display: block;
+
 }
 form.signin-form{
     max-width: 350px;
-    margin: auto; 
+    margin: auto;
 }
 button.signin-button{
     color: #ffffff;
     background-color: #d673b9;
     width: 100%;
+}
+button.question-btn{
+    color: #ffffff;
+    background-color: #21c5ca;
+    width: 25%;
+    position: auto;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+label.signin-button{
+    color: #ffffff;
+    background-color: #d673b9;
+
 }
