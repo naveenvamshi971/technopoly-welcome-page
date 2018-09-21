@@ -1,4 +1,10 @@
-
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Chanakya
+ * Date: 9/17/2018
+ * Time: 8:12 PM
+ */
 session_start();
 $qid=$_GET["var"];
 $uname=$_SESSION['uname'];
@@ -49,7 +55,8 @@ if(($i4=$conn->query($sq4))== false)
 {
     echo $conn->error;
 }
-
-header("location:shop.html");
-
+header('Refresh:0; url=index1.html');
+echo '<script language="javascript">';
+echo 'alert("sold succsfully")';
+echo '</script>';
 ?>
