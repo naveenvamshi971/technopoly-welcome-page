@@ -7,7 +7,6 @@
  * Time: 12:32 PM
  */
 session_start();
-#include 'shop.html';
 $conn=new mysqli("localhost", "root", "", "technopoly");
 if($conn->connect_error)
 {
@@ -30,6 +29,20 @@ else{
 }
 $balance=$r4['balance'];
 
+$sq5="select * from question where qid='$qid[0]' and status=0;";
+if(($r5=$conn->query($sq5))== false)
+    echo $conn->error;
+else{
+    if($r5->num_rows){
+
+    }
+    else{
+        header('Refresh:0; url=index1.html');
+        echo '<script language="javascript">';
+        echo 'alert("Too slow....Try other qustion")';
+        echo '</script>';
+    }
+}
 $sql="select * from question where qid='$qid[0]';";
 $sq2="select * from options where qid='$qid[0]';";
 if(($i1=$conn->query($sql))== false or ($i2=$conn->query($sq2))== false)
@@ -44,18 +57,10 @@ else {
             $ques = $r1['question'];
             $cp=$r1['price'];
             $x = $qid[0];
-            echo "<html><body>
-       <table width='10' cellspacing='7' cellpadding='5'>
-       <tr>
-               <td>$x.$ques</td>
-       </tr>
-      
-       </table></body></html>";
-
             break;
         }
         else{
-            #header('Refresh:0; url=shop.html');
+            header('Refresh:0; url=index1.html');
             echo '<script language="javascript">';
             echo 'alert("insufficint balance")';
             echo '</script>';
@@ -63,13 +68,19 @@ else {
     }
 
     $bal=$r4['balance'];
-
-    $cp=$r4['price'];
-    $sq3="update login
-                  set balance=$bal-$cp
-                  where uname='$uname'";
+    #echo $bal;
+    #echo $cp."bye";
+    #echo "hii";
+    $sq3="update login set balance='$bal'-'$cp' where uname='$uname';";
 
     if(($i3=$conn->query($sq3))== false)
+    {
+        echo $conn->error;
+    }
+    $sq6="update question
+              set status=1
+              where qid='$qid[0]'";
+    if(($i6=$conn->query($sq6))== false)
     {
         echo $conn->error;
     }
@@ -78,36 +89,64 @@ else {
         $option2=$r2['option-2'];
         $option3=$r2['option-3'];
         $option4=$r2['option-4'];
-        echo "<html><body><form action='check.php' method='POST'>
-       <table  width='10' cellspacing='7' cellpadding='5'>
-       <tr>
-               <td><input type='radio' name='option' value='1'></td>
-               <td>$option1</td>
-       </tr>
-        <tr>
-               <td><input type='radio' name='option' value='2'></td>
-               <td>$option2</td>
-       </tr>
-        <tr>
-               <td><input type='radio' name='option' value='3'></td>
-               <td>$option3</td>
-       </tr>
-        <tr>
-               <td><input type='radio' name='option' value='4'></td>
-               <td>$option4</td>
-       </tr>
-       <tr>
-            <td><input type='submit' name='$qid[0]' value='submit'/></td>
-       </tr>
-       <tr>
-            <td><a href='sell.php?var=$qid[0]'><input type='button' value='sell'/></a></td>
-       </tr>
-       </table></form></body></html>";
+        break;
     }
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login to Technopoly</title>
+    <link rel="stylesheet" href="bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-4.0.0-alpha.6-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body class="question-body">
+<div class="container question-container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-sm-12 col-md-8">
+            <div class="card question-card">
+                <div class="card-block question-block">
 
-<script>
-    func(x)
-</script>
+                    <div>
+                        <label for="question"> <font size="+2"><?php echo $x ?>.<?php echo $ques ?></font></label>
+                    </div><br><br>
+                    <form action="check.php" method="POST">
+                        <div>
+                            <label class="btn btn-lg btn-secondary signin-button">
+                                <input type='radio' name='option' value='1'><?php echo $option1 ?>
+                            </label>
+                            <label class="btn btn-lg btn-secondary signin-button">
+                                <input type='radio' name='option' value='2'><?php echo $option2 ?>
+                            </label>
+                            <label class="btn btn-lg btn-secondary signin-button">
+                                <input type='radio' name='option' value='3'><?php echo $option3 ?>
+                            </label>
+                            <label class="btn btn-lg btn-secondary signin-button">
+                                <input type='radio' name='option' value='4'><?php echo $option4 ?>
+                            </label> <br> <br>
+
+                            <input class="btn btn-lg btn-secondary question-btn " type='submit' name="<?php echo $qid[0] ?>" value='submit'/>
+                    </form>
+                            <a href='sell.php?var=<?php echo $qid[0] ?>'><input type="button" class="btn btn-lg btn-secondary question-btn " value="Sell"></></a>
+
+
+                        </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+
+</body>
+</html>
+
+
