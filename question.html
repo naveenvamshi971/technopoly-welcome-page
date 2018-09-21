@@ -1,22 +1,52 @@
-<div class="container">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <form>
-            <h1><span ng-bind-html="toHtml(question.question)"></span></h1>
-            <div class="form-group">
-            <input type="hidden" name="qid" id="qid" value="{{question.qid}}" />
-            <input type="hidden" name="prize" value="{{question.prize}}" />
-            <input type="hidden" name="cp" id="cp" value="{{question.costprice}}" />            
-            <div class="radio" ng-repeat="i in answers track by $index">
-            <label><input type="radio" name="option" value="{{i.ansid}}">{{i.answer}}</label>
-            </div>
-            <input type="submit" class="btn btn-success" id="submitans" value="Submit" name="submit" onclick="submitAnswer();" />
-            
-             <button class="btn btn-warning" data-toggle="collapse" data-target="#demo">Sell</button>
-            <div id="demo" class="collapse">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                    <label>Bought for <strong><i>{{question.costprice}}</i></strong> Sell for:</label>
-                    <input class="form-control" type="number" id="price" />
-                    <input type="button" class="btn btn-success" id="market" value="sell" name="sell" onclick="addToMarket()"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login to Technopoly</title>
+    <link rel="stylesheet" href="bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-4.0.0-alpha.6-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body class="question-body">
+<div class="container question-container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-sm-12 col-md-8">
+            <div class="card question-card">
+                <div class="card-block question-block">
+                    <div>
+                        <label for="question"> <font size="+2">1234. Answer this question by choosing one of the options.</font></label>
+                    </div><br><br>
+                    <div>
+                        <label class="btn btn-lg btn-secondary signin-button">
+                            <input type="radio" name="option" value="option1"> option1
+                        </label>
+                        <label class="btn btn-lg btn-secondary signin-button">
+                            <input type="radio" name="option" value="option2"> option2
+                        </label>
+                        <label class="btn btn-lg btn-secondary signin-button">
+                            <input type="radio" name="option" value="option2"> option3
+                        </label>
+                        <label class="btn btn-lg btn-secondary signin-button">
+                            <input type="radio" name="option" value="option2"> option4
+                        </label> <br> <br>
+
+                        <button class="btn btn-lg btn-secondary question-btn ">Submit</button>
+                        <button class="btn btn-lg btn-secondary question-btn ">Sell</button>
+
+
+
                     </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+
+</body>
+</html>
