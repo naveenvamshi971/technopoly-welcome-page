@@ -145,21 +145,21 @@ else {
                     <form action="check.php" method="POST">
                         <div>
                             <label class="btn btn-lg btn-secondary signin-button">
-                                <input type='radio' name='option' value='1'><?php echo $option1 ?>
+                                <input type='radio' name='option' value='1' required><?php echo $option1 ?>
                             </label>
                             <label class="btn btn-lg btn-secondary signin-button">
-                                <input type='radio' name='option' value='2'><?php echo $option2 ?>
+                                <input type='radio' name='option' value='2' required><?php echo $option2 ?>
                             </label>
                             <label class="btn btn-lg btn-secondary signin-button">
-                                <input type='radio' name='option' value='3'><?php echo $option3 ?>
+                                <input type='radio' name='option' value='3' required><?php echo $option3 ?>
                             </label>
                             <label class="btn btn-lg btn-secondary signin-button">
-                                <input type='radio' name='option' value='4'><?php echo $option4 ?>
+                                <input type='radio' name='option' value='4' required><?php echo $option4 ?>
                             </label> <br> <br>
 
-                            <input class="btn btn-lg btn-secondary question-btn " type='submit' name="<?php echo $qid[0] ?>" value='submit'/>
+                            <input class="btn btn-lg btn-secondary question-btn " id="<?php echo $qid[0] ?>" style="color: #ffffff;background-color: #21c5ca;width: 25%;" type='submit' name="<?php echo $qid[0] ?>" value='Submit'/>
                     </form>
-                            <a href='sell.php?var=<?php echo $qid[0] ?>'><input type="button" class="btn btn-lg btn-secondary question-btn " value="Sell"></></a>
+                            <a href='sell.php?var=<?php echo $qid[0] ?>'><input type="button" class="btn btn-lg btn-secondary question-btn " style="color: #ffffff;background-color: #21c5ca;width: 25%;" value="Sell"></></a>
 
 
                         </div>
