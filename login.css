@@ -59,6 +59,14 @@ button.question-btn{
     margin-right: 50px;
     margin-left: 50px;
 }
+.question-btn{
+    color: #ffffff;
+    background-color: #21c5ca;
+    width: 25%;
+    position: auto;
+    margin-right: 50px;
+    margin-left: 50px;
+}
 
 label.signin-button{
     color: #ffffff;
