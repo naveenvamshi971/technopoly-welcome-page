@@ -26,7 +26,6 @@ else{
     }
 }
 $uid=$r['uid'];
-echo $uid;
 $sq1="select * from market where uid<>'$uid'";
 if(($i1=$conn->query($sq1))== false) {
     echo $conn->error;
