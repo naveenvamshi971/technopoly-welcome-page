@@ -104,7 +104,7 @@ else{
     div.d1 {
         position: relative;
         border-radius: 20px;
-        background: linear-gradient(darkgrey,whitesmoke);
+        background: linear-gradient(aliceblue,whitesmoke);
         font: 20px bold ;
         color: black;
         font-weight: bold;
