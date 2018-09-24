@@ -38,9 +38,25 @@ else{
         }
     }
 }
-$sq2="insert into market(qid,uid) values($qid,$uid)";
-if(($i2=$conn->query($sq2))== false)
+$sq5="select * from market where qid='$qid'";
+if(($i5=$conn->query($sq5))== false)
 {
+    echo $conn->error;
+}
+else {
+    if($i5->num_rows)
+    {
+        $sq6="delete from market where qid='$qid'";
+        if(($i6=$conn->query($sq6))== false)
+        {
+            echo $conn->error;
+        }
+    }
+
+
+}
+$sq2 = "insert into market(qid,uid) values($qid,$uid)";
+if (($i2 = $conn->query($sq2)) == false) {
     echo $conn->error;
 }
 $cp=$r1['price'];
