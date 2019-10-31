@@ -1,16 +1,16 @@
 
-<?php
-/**
- * Created by PhpStorm.
- * User: Chanakya
- * Date: 9/16/2018
- * Time: 12:32 PM
- */
+
+ <?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+
+// Create connection 
 session_start();
 $conn=new mysqli("localhost", "root", "", "technopoly");
-if($conn->connect_error)
-{
-    die("connection failed".$conn->connect_error);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 $qid=array_keys($_POST);
 $uname=$_SESSION["uname"];
